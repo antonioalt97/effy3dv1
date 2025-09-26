@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effy3D | 3D Modeler & VTuber Artist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        undefined: {
+                            100: '#f0f4ff',
+                            200: '#d9e2ff',
+                            300: '#a6c1ff',
+                            400: '#598bff',
+                            500: '#3366ff',
+                            600: '#274bdb',
+                            700: '#1a34b8',
+                            800: '#102694',
+                            900: '#091c7a',
+                        },
+                        secondary: {
+                            100: '#fff6f0',
+                            200: '#ffe2d9',
+                            300: '#ffc4a6',
+                            400: '#ff9559',
+                            500: '#ff6633',
+                            600: '#db4727',
+                            700: '#b82d1a',
+                            800: '#941910',
+                            900: '#7a0b09',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0a0a0a;
+            color: #f8f8f8;
+        }
+        .vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        .portfolio-item {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(255, 102, 51, 0.1), 0 10px 10px -5px rgba(255, 102, 51, 0.04);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 102, 51, 0.7);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #ff6633;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div id="vanta-bg" class="vanta-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="https://huggingface.co/spaces/keldev/polypunk-vtuber-studio/resolve/main/images/logo2025_w.png" alt="Effy3D Logo" class="h-40">
+</div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-white hover:text-undefined-400 px-3 py-2">Home</a>
+                        <a href="#portfolio" class="nav-link text-white hover:text-undefined-400 px-3 py-2">Portfolio</a>
+                        <a href="#services" class="nav-link text-white hover:text-undefined-400 px-3 py-2">Services</a>
+                        <a href="#faq" class="nav-link text-white hover:text-undefined-400 px-3 py-2">FAQ</a>
+                        <a href="#contact" class="bg-undefined-600 hover:bg-undefined-700 text-white px-4 py-2 rounded-md transition duration-300">
+                            Contact
+                        </a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen flex items-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-undefined-500 glow-text">Bringing</span> Your Digital <span class="text-secondary-500">Avatar</span> to Life
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                    Hi, I'm Effy! A professional 3D modeler and VTuber specializing in creating stunning digital avatars and immersive 3D experiences. Let's craft your unique virtual identity together.
+</p>
+                <div class="flex space-x-4">
+                    <a href="#portfolio" class="bg-undefined-600 hover:bg-undefined-700 text-white px-6 py-3 rounded-md transition duration-300 font-medium">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border border-undefined-600 text-undefined-400 hover:bg-undefined-900 hover:bg-opacity-30 px-6 py-3 rounded-md transition duration-300 font-medium">
+                        Get in Touch
+                    </a>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="relative aspect-square w-full rounded-2xl overflow-hidden border-2 border-undefined-500">
+                    <img src="http://static.photos/technology/1024x576/42" alt="VTuber Avatar" class="w-full h-full object-cover">
+                </div>
+                <a href="https://www.twitch.tv/effy3d" target="_blank" class="absolute -bottom-6 -right-6 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-bold transition duration-300">
+                    Effy3D on Twitch!
+                </a>
+</div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-50 backdrop-blur-sm">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                My <span class="text-undefined-500">3D</span> Creations
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                A showcase of my latest 3D modeling projects, from VTuber avatars to game assets and animations.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Portfolio Item 1 -->
+            <div class="portfolio-item bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-undefined-500">
+                <div class="aspect-video overflow-hidden">
+                    <img src="http://static.photos/gaming/1024x576/101" alt="Cyberpunk VTuber Model" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Neon Dream VTuber</h3>
+                    <p class="text-gray-400 mb-4">Fully rigged cyberpunk-style avatar with dynamic lighting effects</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">Blender</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">Unity</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">VRChat</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 2 -->
+            <div class="portfolio-item bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-undefined-500">
+                <div class="aspect-video overflow-hidden">
+                    <img src="http://static.photos/abstract/1024x576/202" alt="Fantasy Character" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Elven Warrior</h3>
+                    <p class="text-gray-400 mb-4">High-poly fantasy character model with 4K textures</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">ZBrush</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">Substance</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">Maya</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 3 -->
+            <div class="portfolio-item bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-undefined-500">
+                <div class="aspect-video overflow-hidden">
+                    <img src="http://static.photos/minimal/1024x576/303" alt="Stream Overlays" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Stream Package</h3>
+                    <p class="text-gray-400 mb-4">Complete streaming package with animated overlays and alerts</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">After Effects</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">OBS</span>
+                        <span class="bg-undefined-900 text-undefined-300 px-3 py-1 rounded-full text-sm">LIVE2D</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="#" class="inline-flex items-center text-undefined-400 hover:text-undefined-300">
+                View Full Portfolio
+                <i data-feather="arrow-right" class="ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                My <span class="text-secondary-500">Services</span>
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Custom solutions tailored to bring your virtual identity to life
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="bg-gray-900 rounded-xl p-8 border border-gray-800 hover:border-secondary-500 transition duration-300">
+                <div class="w-16 h-16 bg-secondary-900 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="user" class="text-secondary-500 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Custom VTuber Avatars</h3>
+                <p class="text-gray-400 mb-4">
+                    Fully rigged 2D or 3D avatars optimized for streaming, complete with facial tracking and expressive controls.
+                </p>
+                <div class="text-secondary-400 font-medium">Starting at $500</div>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="bg-gray-900 rounded-xl p-8 border border-gray-800 hover:border-secondary-500 transition duration-300">
+                <div class="w-16 h-16 bg-secondary-900 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="box" class="text-secondary-500 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">3D Model Rigging</h3>
+                <p class="text-gray-400 mb-4">
+                    Professional rigging services for your existing 3D models, including facial blendshapes and body deformation.
+                </p>
+                <div class="text-secondary-400 font-medium">Starting at $300</div>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="bg-gray-900 rounded-xl p-8 border border-gray-800 hover:border-secondary-500 transition duration-300">
+                <div class="w-16 h-16 bg-secondary-900 rounded-lg flex items-center justify-center mb-6">
+                    <i data-feather="tv" class="text-secondary-500 w-8 h-8"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Stream Assets</h3>
+                <p class="text-gray-400 mb-4">
+                    Complete streaming packages including overlays, alerts, panels, and animated transitions.
+                </p>
+                <div class="text-secondary-400 font-medium">Starting at $200</div>
+            </div>
+        </div>
+        
+        <div class="mt-12 bg-gradient-to-r from-undefined-900 to-secondary-900 rounded-xl p-8 border border-gray-800">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Need something custom?</h3>
+                    <p class="text-gray-300">Let's discuss your unique project requirements</p>
+                </div>
+                <a href="#contact" class="bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-md transition duration-300 font-medium">
+                    Request Custom Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-50 backdrop-blur-sm">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Frequently <span class="text-undefined-500">Asked</span> Questions
+            </h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Answers to common questions about my services and workflow
+            </p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">What software do you use for 3D modeling?</h3>
+                        <i data-feather="chevron-down" class="text-undefined-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-400">
+                            My primary tools are Blender for modeling and sculpting, ZBrush for high-detail work, Substance Painter for texturing, and Maya for complex rigging. For VTuber avatars, I often use Unity or Unreal Engine for final implementation.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-900 rounded-xl overflow-hidden border border-gray-800">
+                    <button class="faq-toggle w-full text-left p-6 flex justify-between items-center">
+                        <h3 class="text-lg font-medium">How long does a typical VTuber avatar commission take?</h3>
+                        <i data-feather="chevron-down" class="text-undefined-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6 hidden">
+                        <p class="text-gray-400">
+                            A full 3D VTuber avatar typically takes 4-6 weeks from concept to completion, depending on complexity. 2D Live2D models usually take 2-3 weeks. Rush options may be available for an additional fee.
+                        </p>
+                    </div>
+                </div>
+                
+                
+</body>
+</html>
